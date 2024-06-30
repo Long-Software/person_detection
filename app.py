@@ -30,7 +30,14 @@ def save_detected_objects():
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    query = 'person'
+    results = []
+    for filename, metadata in detected_objects.items():
+        print(f"Checking file: {filename}, metadata: {metadata}")
+        if any(query.lower() in obj.lower() for obj in metadata['objects']):
+            results.append(metadata)
+            print(f"Match found: {metadata}")
+    return render_template('index.html', results=results, query=query)
 
 @app.route('/upload', methods=['POST'])
 def upload_file():

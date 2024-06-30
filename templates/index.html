@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image and Video Search Engine</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <style>
@@ -72,20 +73,20 @@
         <input type="file" name="file" required>
         <button type="submit">Upload</button>
     </form>
-    <form action="/search" method="get">
-        <input type="text" name="query" placeholder="Search for objects..." required>
-        <button type="submit">Search</button>
-    </form>
+    <!-- <form action="/search" method="get"> -->
+        <!-- <input type="text" name="query" placeholder="Search for objects..." required> -->
+        <!-- <button type="submit">Search</button> -->
+    <!-- </form> -->
     
     {% if results %}
-        <h2>Search Results for "{{ query }}"</h2>
+        <!-- <h2>Search Results for "{{ query }}"</h2> -->
         <div class="results-container">
             {% for result in results %}
                 <div class="result-item">
                     {% if result.type == 'image' %}
                         <img src="{{ url_for('static', filename=result.path) }}" alt="{{ result.path }}">
                     {% elif result.type == 'video' %}
-                        <video controls>
+                        <video controls >
                             <source src="{{ url_for('static', filename=result.path) }}" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>

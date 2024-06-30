@@ -1,22 +1,14 @@
-# data
-- different angle
-- reflection
-- shadow
-- far
-- close image
-- gray scale image
-- rgb image
+# Start up
+```sh
+python -m venv .venv
 
-# folders structure
-- train_data
-    - images
-        - train
-        - val
-    - labels
+.venv/Scripts/activate.bat
 
+pip install -r yolov5/requirements.txt
+pip install opencv-python flask pillow
+```
 
-# makesense.ai
-1. import image
-2. create label for what we want to detect
-3. draw the rectangle for the object
-4. action > export anotation > YOLO format
+# Run app
+```sh
+python app.py
+```
